@@ -1,5 +1,18 @@
 # Tutorial 7: Arrays and Advanced Memory
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- 🎯 Create and manipulate arrays using `CREATE`, `ALLOT`, and `CELLS`
+- 🎯 Implement multi-dimensional arrays with index calculations
+- 🎯 Use `ALLOCATE` and `FREE` for dynamic memory management
+- 🎯 Build custom data structures (records/structs)
+- 🎯 Understand memory layout and byte vs. cell addressing
+- 🎯 Compare Forth arrays to arrays in C and pointer arithmetic
+- 🎯 Recognize how memory allocation relates to malloc/free in C
+
+**Connection to other languages:** Forth's array indexing (`cells + @`) is identical to C's pointer arithmetic (`*(array + index)`). Understanding this reveals how high-level array syntax works under the hood in all languages.
+
 ## Introduction
 
 Now that you understand variables, let's explore more advanced memory operations: arrays, buffers, memory allocation, and custom data structures.
@@ -55,7 +68,7 @@ create numbers 5 cells allot
 ### Why `cells`?
 
 The word `cells` converts an index to bytes:
-- If cells are 8 bytes: `3 cells` � 24
+- If cells are 8 bytes: `3 cells` � 24
 - This gives the byte offset for the 3rd element
 
 ```forth

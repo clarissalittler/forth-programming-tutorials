@@ -71,6 +71,7 @@ gforth filename.fs
 7. **[Tutorial 6: Variables and Memory](tutorials/06-variables.md)** - Storing and retrieving data
 8. **[Tutorial 7: Arrays and Advanced Memory](tutorials/07-arrays-memory.md)** - Working with arrays and memory allocation
 9. **[Tutorial 8: Strings and Characters](tutorials/08-strings.md)** - String operations and character handling
+10. **[Tutorial 9: Memory Architecture & The Dictionary](tutorials/09-memory-dictionary.md)** - Understanding Forth's memory model, the dictionary, and meta-programming
 
 ## How to Use These Tutorials
 

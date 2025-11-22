@@ -1,5 +1,18 @@
 # Tutorial 6: Variables and Memory
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- 🎯 Create and use variables with `VARIABLE`, `!` (store), and `@` (fetch)
+- 🎯 Understand the difference between values and addresses in memory
+- 🎯 Use `VALUE` and `TO` for more convenient variable access
+- 🎯 Perform direct memory operations with `C@` and `C!` for byte access
+- 🎯 Recognize how Forth's memory model relates to pointers in C
+- 🎯 Understand when to use the stack vs. when to use variables
+- 🎯 Compare Forth's memory operations to variables in high-level languages
+
+**Connection to other languages:** Forth's `!` and `@` are exactly like C's pointer dereference (`*ptr` and `*ptr = value`). Understanding this prepares you for systems programming and helps demystify pointers.
+
 ## Introduction
 
 So far, we've worked primarily with the stack. But sometimes you need to store values in memory for later use. Forth provides variables, constants, and direct memory access.
@@ -249,7 +262,7 @@ variable z
 
 : distance-from-origin  ( -- distance )
     x @ dup * y @ dup * + z @ dup * +
-    \ This gives us x�+y�+z� (not perfect, but demonstrates concept)
+    \ This gives us x�+y�+z� (not perfect, but demonstrates concept)
 ;
 ```
 

@@ -1,5 +1,18 @@
 # Tutorial 8: Strings and Character Operations
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- 🎯 Work with strings using address-length pairs (`S"`, `TYPE`)
+- 🎯 Manipulate individual characters with `EMIT`, `KEY`, and `CHAR`
+- 🎯 Understand counted strings vs. null-terminated strings
+- 🎯 Parse and process text input
+- 🎯 Build string manipulation utilities (length, compare, concatenate)
+- 🎯 Compare Forth's string handling to C strings and Python/Java strings
+- 🎯 Recognize how different string representations affect memory usage
+
+**Connection to other languages:** Forth's address-length pairs are safer than C's null-terminated strings (no buffer overflows from missing null). Understanding both approaches helps you appreciate string handling in modern languages.
+
 ## Introduction
 
 Strings in Forth are different from most languages. Forth uses two common representations:

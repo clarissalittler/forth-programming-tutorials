@@ -1,5 +1,17 @@
 # Tutorial 1: The Stack and Basic Arithmetic
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- ðŸŽ¯ Visualize and trace stack operations step-by-step
+- ðŸŽ¯ Perform integer arithmetic and understand integer division behavior
+- ðŸŽ¯ Convert between number bases (decimal, hexadecimal, binary)
+- ðŸŽ¯ Translate mathematical expressions into stack-based operations
+- ðŸŽ¯ Debug stack-related errors using `depth` and `.s`
+- ðŸŽ¯ Understand how stack discipline prevents bugs
+
+**Connection to other languages:** The stack model underlies function calls in all languages (the "call stack"), Java/Python bytecode interpreters, and assembly language operations.
+
 ## Understanding the Stack
 
 The stack is the heart of Forth. Every operation in Forth revolves around the stack. Think of it as a stack of plates or a stack of pancakes - you can only add to the top (push) or remove from the top (pop).
@@ -64,12 +76,12 @@ Forth provides all the standard arithmetic operations:
 
 | Word | Stack Effect | Description | Example |
 |------|--------------|-------------|---------|
-| `+` | `( n1 n2 -- sum )` | Addition | `5 3 + .` ’ 8 |
-| `-` | `( n1 n2 -- diff )` | Subtraction | `10 3 - .` ’ 7 |
-| `*` | `( n1 n2 -- prod )` | Multiplication | `6 7 * .` ’ 42 |
-| `/` | `( n1 n2 -- quot )` | Integer division | `15 4 / .` ’ 3 |
-| `mod` | `( n1 n2 -- rem )` | Modulo (remainder) | `15 4 mod .` ’ 3 |
-| `/mod` | `( n1 n2 -- rem quot )` | Both remainder and quotient | `15 4 /mod . .` ’ 3 3 |
+| `+` | `( n1 n2 -- sum )` | Addition | `5 3 + .` ï¿½ 8 |
+| `-` | `( n1 n2 -- diff )` | Subtraction | `10 3 - .` ï¿½ 7 |
+| `*` | `( n1 n2 -- prod )` | Multiplication | `6 7 * .` ï¿½ 42 |
+| `/` | `( n1 n2 -- quot )` | Integer division | `15 4 / .` ï¿½ 3 |
+| `mod` | `( n1 n2 -- rem )` | Modulo (remainder) | `15 4 mod .` ï¿½ 3 |
+| `/mod` | `( n1 n2 -- rem quot )` | Both remainder and quotient | `15 4 /mod . .` ï¿½ 3 3 |
 
 Let's try these:
 
@@ -105,16 +117,16 @@ If you need both the quotient and remainder, use `/mod` which is more efficient 
 
 | Word | Stack Effect | Description | Example |
 |------|--------------|-------------|---------|
-| `negate` | `( n -- -n )` | Negate a number | `5 negate .` ’ -5 |
-| `abs` | `( n -- |n| )` | Absolute value | `-7 abs .` ’ 7 |
-| `min` | `( n1 n2 -- min )` | Minimum of two numbers | `5 3 min .` ’ 3 |
-| `max` | `( n1 n2 -- max )` | Maximum of two numbers | `5 3 max .` ’ 5 |
-| `1+` | `( n -- n+1 )` | Add 1 | `5 1+ .` ’ 6 |
-| `1-` | `( n -- n-1 )` | Subtract 1 | `5 1- .` ’ 4 |
-| `2+` | `( n -- n+2 )` | Add 2 | `5 2+ .` ’ 7 |
-| `2-` | `( n -- n-2 )` | Subtract 2 | `5 2- .` ’ 3 |
-| `2*` | `( n -- n*2 )` | Multiply by 2 | `5 2* .` ’ 10 |
-| `2/` | `( n -- n/2 )` | Divide by 2 | `10 2/ .` ’ 5 |
+| `negate` | `( n -- -n )` | Negate a number | `5 negate .` ï¿½ -5 |
+| `abs` | `( n -- |n| )` | Absolute value | `-7 abs .` ï¿½ 7 |
+| `min` | `( n1 n2 -- min )` | Minimum of two numbers | `5 3 min .` ï¿½ 3 |
+| `max` | `( n1 n2 -- max )` | Maximum of two numbers | `5 3 max .` ï¿½ 5 |
+| `1+` | `( n -- n+1 )` | Add 1 | `5 1+ .` ï¿½ 6 |
+| `1-` | `( n -- n-1 )` | Subtract 1 | `5 1- .` ï¿½ 4 |
+| `2+` | `( n -- n+2 )` | Add 2 | `5 2+ .` ï¿½ 7 |
+| `2-` | `( n -- n-2 )` | Subtract 2 | `5 2- .` ï¿½ 3 |
+| `2*` | `( n -- n*2 )` | Multiply by 2 | `5 2* .` ï¿½ 10 |
+| `2/` | `( n -- n/2 )` | Divide by 2 | `10 2/ .` ï¿½ 5 |
 
 Examples:
 
@@ -269,7 +281,7 @@ Create `celsius-to-fahrenheit.fs`:
 \ celsius-to-fahrenheit.fs
 \ Convert Celsius to Fahrenheit
 
-\ Let's convert 25°C
+\ Let's convert 25ï¿½C
 25 9 * 5 / 32 + .       \ 77
 
 bye
@@ -279,17 +291,17 @@ Note: We do `25 * 9 / 5` rather than `25 * 9/5` because `9/5` would be integer d
 
 ### Circle Area
 
-Calculate area of a circle: A = Àr²
-(We'll approximate À as 314/100)
+Calculate area of a circle: A = ï¿½rï¿½
+(We'll approximate ï¿½ as 314/100)
 
 ```forth
 \ circle-area.fs
 \ Calculate area of circle with radius 10
 
 10              \ radius
-dup *           \ square it (r²)
+dup *           \ square it (rï¿½)
 314 *           \ multiply by 314
-100 /           \ divide by 100 (this gives us À H 3.14)
+100 /           \ divide by 100 (this gives us ï¿½ H 3.14)
 .               \ print result (314)
 
 bye
@@ -342,11 +354,11 @@ We'll learn about `dup` in the next tutorial - it duplicates the top stack item.
 1. Calculate: `(7 + 8) * 3`
 2. Calculate: `100 / (5 - 3)`
 3. Calculate the remainder when 47 is divided by 5
-4. Calculate both quotient and remainder of 47 ÷ 5
-5. Convert 100°F to Celsius: C = (F - 32) * 5/9
+4. Calculate both quotient and remainder of 47 ï¿½ 5
+5. Convert 100ï¿½F to Celsius: C = (F - 32) * 5/9
 6. Find the absolute value of `-42`
 7. Find the larger of 17 and 23
-8. Calculate: `2³ = 2 * 2 * 2`
+8. Calculate: `2ï¿½ = 2 * 2 * 2`
 9. What's the result of `15 3 /mod`? (Show both values)
 10. Create a script that calculates the perimeter of a rectangle with width 5 and height 3
 

@@ -1,5 +1,17 @@
 # Tutorial 2: Stack Manipulation
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- ðŸŽ¯ Use core stack manipulation words: `dup`, `drop`, `swap`, `over`, `rot`
+- ðŸŽ¯ Mentally trace complex stack operations without running code
+- ðŸŽ¯ Choose the right stack word for any data rearrangement task
+- ðŸŽ¯ Understand how stack manipulation compares to variable assignment in other languages
+- ðŸŽ¯ Recognize stack manipulation patterns that lead to cleaner code
+- ðŸŽ¯ Debug stack underflow and overflow errors
+
+**Connection to other languages:** Stack operations are like register operations in assembly language. Learning to "think in stacks" improves your understanding of how function arguments are passed in C, Python, and Java.
+
 ## Introduction
 
 Stack manipulation words are essential tools in Forth programming. They let you rearrange, copy, and remove values on the stack. Mastering these words is key to writing clean, efficient Forth code.
@@ -236,13 +248,13 @@ r> * .          \ Get 5 back, multiply: 7 * 5 = 35
 
 ## Practical Examples
 
-### Example 1: Calculate `a² + b²`
+### Example 1: Calculate `aï¿½ + bï¿½`
 
 ```forth
-\ For a=3, b=4, we want 3² + 4² = 9 + 16 = 25
+\ For a=3, b=4, we want 3ï¿½ + 4ï¿½ = 9 + 16 = 25
 3 4             \ [3 4]
-dup * swap      \ [9 4]  (calculated 3², swapped)
-dup * +         \ [25]   (calculated 4², added)
+dup * swap      \ [9 4]  (calculated 3ï¿½, swapped)
+dup * +         \ [25]   (calculated 4ï¿½, added)
 .               \ 25
 ```
 
@@ -375,7 +387,7 @@ drop            \ Error if stack is empty
 1. Starting with `3 4` on the stack, duplicate both numbers: `3 4 3 4`
 2. Starting with `10 20 30` on the stack, get it to: `20 30 10`
 3. Square the number 9 (result: 81)
-4. Calculate `2³ = 2 * 2 * 2` using `dup`
+4. Calculate `2ï¿½ = 2 * 2 * 2` using `dup`
 5. Starting with `5 10`, calculate both the sum (15) and product (50)
 6. Remove the second item from the stack containing `10 20 30`
 7. Starting with `7 8`, arrange them as `7 8 7 8 7`
@@ -452,8 +464,8 @@ When writing Forth code, it's good practice to document the stack effects of you
 ```forth
 \ Calculate area of circle ( radius -- area )
 dup             \ ( radius -- radius radius )
-*               \ ( radius radius -- radius² )
-314 * 100 /     \ ( radius² -- area )
+*               \ ( radius radius -- radiusï¿½ )
+314 * 100 /     \ ( radiusï¿½ -- area )
 ```
 
 This helps you and others understand what the code expects and produces.

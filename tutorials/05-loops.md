@@ -1,5 +1,18 @@
 # Tutorial 5: Loops and Iteration
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- 🎯 Write counting loops with `DO...LOOP` and custom increments with `+LOOP`
+- 🎯 Use `BEGIN...UNTIL` for condition-based loops
+- 🎯 Apply `BEGIN...WHILE...REPEAT` for complex loop logic
+- 🎯 Access loop counters with `I` and `J` for nested loops
+- 🎯 Exit loops early with `LEAVE`
+- 🎯 Choose the right loop construct for different iteration patterns
+- 🎯 Understand how Forth loops compare to for/while loops in other languages
+
+**Connection to other languages:** Forth's loop constructs map directly to assembly-level branch instructions. Understanding these prepares you for optimizing loops in any language and recognizing compiler optimizations.
+
 ## Introduction
 
 Loops let you repeat operations efficiently. Forth provides several looping constructs for different use cases:
@@ -560,7 +573,7 @@ Loop counters are stored on the return stack. This means:
 2. Print even numbers from 0 to 20
 3. Calculate the sum of numbers from 1 to 100
 4. Print a countdown from 10 to 1
-5. Print the first 10 squares (1�, 2�, ..., 10�)
+5. Print the first 10 squares (1�, 2�, ..., 10�)
 6. Implement a word that checks if a number is prime
 7. Print a 5x5 grid of asterisks using nested loops
 8. Calculate N! (factorial) using a loop

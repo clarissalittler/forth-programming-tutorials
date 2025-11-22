@@ -1,5 +1,18 @@
 # Tutorial 3: Defining Words
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- ðŸŽ¯ Define custom words (functions) using `:` and `;`
+- ðŸŽ¯ Write clear stack effect diagrams to document your words
+- ðŸŽ¯ Build complex programs incrementally from simple words (bottom-up design)
+- ðŸŽ¯ Use constants for readable, maintainable code
+- ðŸŽ¯ Apply proper Forth naming conventions
+- ðŸŽ¯ Understand how word definitions relate to functions in other languages
+- ðŸŽ¯ Factor code appropriately: knowing when to break down complex words
+
+**Connection to other languages:** Defining words in Forth is like writing functions in C/Python, but compilation happens interactively. Understanding Forth's compilation model helps you grasp how compilers and interpreters work.
+
 ## Introduction
 
 So far, we've been using Forth's built-in words like `+`, `dup`, and `swap`. Now you'll learn how to create your own words (functions) to extend the language.
@@ -41,7 +54,7 @@ Most words operate on the stack. Let's define a word that squares a number.
 ### Example: Square
 
 ```forth
-: square  ( n -- n² )
+: square  ( n -- nï¿½ )
     dup *
 ;
 ```
@@ -52,15 +65,15 @@ Test it:
 10 square .     \ 100
 ```
 
-The comment `( n -- n² )` is the **stack effect diagram**:
-- `( n -- n² )` means: takes one number, returns its square
+The comment `( n -- nï¿½ )` is the **stack effect diagram**:
+- `( n -- nï¿½ )` means: takes one number, returns its square
 - This is documentation, not executable code
 - It helps readers understand what the word does
 
 ### Example: Cube
 
 ```forth
-: cube  ( n -- n³ )
+: cube  ( n -- nï¿½ )
     dup dup * *
 ;
 ```
@@ -133,11 +146,11 @@ One of Forth's philosophies is building programs bottom-up. Define simple words,
 
 ```forth
 \ Basic definitions
-: square  ( n -- n² )
+: square  ( n -- nï¿½ )
     dup *
 ;
 
-: pi  ( -- À-approx )
+: pi  ( -- ï¿½-approx )
     314 100 /
 ;
 
@@ -324,12 +337,12 @@ seconds-per-minute hours-per-day * . \ 1440
 
 ### Example 1: Hypotenuse Calculation
 
-Calculate the hypotenuse of a right triangle: `c = (a² + b²)`
+Calculate the hypotenuse of a right triangle: `c = (aï¿½ + bï¿½)`
 
 (Note: We'll approximate  using integer division for now)
 
 ```forth
-: square  ( n -- n² )
+: square  ( n -- nï¿½ )
     dup *
 ;
 
@@ -402,7 +415,7 @@ Forth supports several comment styles:
 ( This is a block comment
   It can span multiple lines )
 
-: square  ( n -- n² )  \ Stack effect comment
+: square  ( n -- nï¿½ )  \ Stack effect comment
     dup *
 ;
 ```
@@ -472,7 +485,7 @@ Some words, like `\` and `."`, are **immediate** - they execute even during comp
 2. Define a word `triple` that triples a number
 3. Define a word `abs` that returns the absolute value (use built-in `abs`)
 4. Define a word `average` that averages two numbers
-5. Define a word `print-square` that prints "The square of N is N²"
+5. Define a word `print-square` that prints "The square of N is Nï¿½"
 6. Define constants for common values (e.g., days in a week)
 7. Define a word `max3` that finds the maximum of three numbers
 8. Define a word `between?` that checks if a number is between two others
