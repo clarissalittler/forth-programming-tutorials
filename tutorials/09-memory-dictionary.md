@@ -294,7 +294,7 @@ bytes 8 hdump           \ 01 02 03 04 05 06 07 08
 ```forth
 \ Define a point structure
 : point  ( x y "name" -- )
-    create , ,
+    create swap , ,    \ Swap so x is compiled first
     does> ( -- addr )
 ;
 

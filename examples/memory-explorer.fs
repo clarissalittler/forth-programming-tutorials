@@ -69,7 +69,7 @@ cr
 
 \ Show CREATE...DOES> with a point structure
 : point  ( x y "name" -- )
-    create , ,
+    create swap , ,    \ Swap so x is compiled first
     does> ( -- addr )
 ;
 
