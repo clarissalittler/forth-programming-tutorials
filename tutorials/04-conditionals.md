@@ -1,5 +1,18 @@
 # Tutorial 4: Conditionals and Logic
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- ðŸŽ¯ Use boolean values and understand Forth's true (-1) and false (0) convention
+- ðŸŽ¯ Write conditional logic using `IF...THEN...ELSE` structures
+- ðŸŽ¯ Apply comparison operators (`=`, `<`, `>`, etc.) effectively
+- ðŸŽ¯ Combine conditions with logical operators (`AND`, `OR`, `XOR`, `INVERT`)
+- ðŸŽ¯ Implement multi-way branching with `CASE...ENDCASE`
+- ðŸŽ¯ Understand how Forth conditionals relate to if-statements in C/Python/Java
+- ðŸŽ¯ Recognize how boolean flags work at the bit level
+
+**Connection to other languages:** Forth's boolean convention (0=false, -1=true) shows how truth values work at the hardware level. Understanding this prepares you for bitwise operations in C and boolean logic in digital circuits.
+
 ## Introduction
 
 Real programs need to make decisions. In this tutorial, you'll learn how to use conditional statements and logical operations in Forth.
@@ -26,12 +39,12 @@ Forth provides standard comparison operators that return boolean flags.
 
 | Word | Stack Effect | Description | Example |
 |------|--------------|-------------|---------|
-| `=` | `( n1 n2 -- flag )` | Equal | `5 5 = .` ’ -1 |
-| `<>` | `( n1 n2 -- flag )` | Not equal | `5 3 <> .` ’ -1 |
-| `<` | `( n1 n2 -- flag )` | Less than | `3 5 < .` ’ -1 |
-| `>` | `( n1 n2 -- flag )` | Greater than | `5 3 > .` ’ -1 |
-| `<=` | `( n1 n2 -- flag )` | Less or equal | `3 5 <= .` ’ -1 |
-| `>=` | `( n1 n2 -- flag )` | Greater or equal | `5 5 >= .` ’ -1 |
+| `=` | `( n1 n2 -- flag )` | Equal | `5 5 = .` ï¿½ -1 |
+| `<>` | `( n1 n2 -- flag )` | Not equal | `5 3 <> .` ï¿½ -1 |
+| `<` | `( n1 n2 -- flag )` | Less than | `3 5 < .` ï¿½ -1 |
+| `>` | `( n1 n2 -- flag )` | Greater than | `5 3 > .` ï¿½ -1 |
+| `<=` | `( n1 n2 -- flag )` | Less or equal | `3 5 <= .` ï¿½ -1 |
+| `>=` | `( n1 n2 -- flag )` | Greater or equal | `5 5 >= .` ï¿½ -1 |
 
 ### Examples:
 
@@ -442,9 +455,9 @@ Be careful with stack effects in conditionals!
 
 ```forth
 \ RIGHT: Both branches have same effect
-: correct  ( n -- n² )
+: correct  ( n -- nï¿½ )
     dup 0> IF
-        dup *       \ Leaves n²
+        dup *       \ Leaves nï¿½
     ELSE
         0           \ Leaves 0
     THEN

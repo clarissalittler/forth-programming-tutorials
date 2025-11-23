@@ -1,5 +1,14 @@
 # Tutorial 0: Introduction to Forth
 
+## Learning Objectives
+
+By the end of this tutorial, you will be able to:
+- 🎯 Understand what makes Forth unique: stack-based, concatenative, and interactive
+- 🎯 Execute basic arithmetic using Reverse Polish Notation (RPN)
+- 🎯 Inspect the stack using `.s` for debugging
+- 🎯 Write and run simple Forth scripts
+- 🎯 Recognize how stack-based computation relates to CPU architecture and assembly language
+
 ## What is Forth?
 
 Forth is a unique programming language that's been around since the 1970s. Unlike most languages you may have encountered, Forth is:

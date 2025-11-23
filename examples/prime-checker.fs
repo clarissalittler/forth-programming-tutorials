@@ -8,7 +8,7 @@
             drop -1     \ 2 is prime
         ELSE
             -1 swap     \ Assume prime (flag)
-            dup 1 + 2 DO
+            dup 2 DO
                 dup I mod 0= IF
                     drop 0 LEAVE    \ Found divisor, not prime
                 THEN
